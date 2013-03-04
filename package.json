@@ -1,0 +1,34 @@
+{
+  "name": "permutation-rank",
+  "version": "0.0.0",
+  "description": "Ranks and unranks permutations",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "invert-permutation": "~0.0.0"
+  },
+  "devDependencies": {
+    "tap": "~0.4.0"
+  },
+  "scripts": {
+    "test": "tap test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mikolalysenko/permutation-rank.git"
+  },
+  "keywords": [
+    "permutation",
+    "rank",
+    "unrank",
+    "order",
+    "compare",
+    "sort"
+  ],
+  "author": "Mikola Lysenko",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "gitHead": "878988862d074ad307eed0a60928810e62aeb792"
+}
