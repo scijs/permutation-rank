@@ -25,7 +25,8 @@
     "unrank",
     "order",
     "compare",
-    "sort"
+    "sort",
+    "group"
   ],
   "author": "Mikola Lysenko",
   "license": "MIT",
