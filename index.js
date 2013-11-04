@@ -1,9 +1,11 @@
 "use strict"
 
+var pool = require("typedarray-pool")
 var inverse = require("invert-permutation")
 
 function rank(permutation) {
-  switch(permutation.length) {
+  var n = permutation.length
+  switch(n) {
     case 0:
     case 1:
       return 0
@@ -12,10 +14,14 @@ function rank(permutation) {
     default:
       break
   }
-  var p = permutation.slice(0)
-    , pinv = inverse(p)
-    , r = 0, s, t, i
-  for(i=p.length-1; i>0; --i) {
+  var p = pool.mallocUint32(n)
+  var pinv = pool.mallocUint32(n)
+  var r = 0, s, t, i
+  inverse(permutation, pinv)
+  for(i=0; i<n; ++i) {
+    p[i] = permutation[i]
+  }
+  for(i=n-1; i>0; --i) {
     t = pinv[i]
     s = p[i]
     p[i] = p[t]
@@ -24,24 +30,42 @@ function rank(permutation) {
     pinv[s] = t
     r = (r + s) * i
   }
+  pool.freeUint32(pinv)
+  pool.freeUint32(p)
   return r
 }
 
-function unrank(n, r) {
+function unrank(n, r, p) {
   switch(n) {
     case 0:
+      if(p) { return p }
       return []
     case 1:
-      return [0]
+      if(p) {
+        p[0] = 0
+      } else {
+        return [0]
+      }
     case 2:
-      return r ? [0,1] : [1,0]
+      if(p) {
+        if(r) {
+          p[0] = 0
+          p[1] = 1
+        } else {
+          p[0] = 1
+          p[1] = 0
+        }
+        return p
+      } else {
+        return r ? [0,1] : [1,0]
+      }
     default:
       break
   }
-  var p = new Array(n)
-    , s, t, i, nf=1
+  p = p || new Array(n)
+  var s, t, i, nf=1
   p[0] = 0
-  for(i=1; i<p.length; ++i) {
+  for(i=1; i<n; ++i) {
     p[i] = i
     nf = (nf*i)|0
   }

@@ -1,13 +1,14 @@
 {
   "name": "permutation-rank",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Ranks and unranks permutations",
   "main": "index.js",
   "directories": {
     "test": "test"
   },
   "dependencies": {
-    "invert-permutation": "~0.0.0"
+    "invert-permutation": "~0.1.0",
+    "typedarray-pool": "~0.1.1"
   },
   "devDependencies": {
     "tap": "~0.4.0"

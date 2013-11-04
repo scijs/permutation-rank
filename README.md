@@ -29,11 +29,20 @@ console.log("u = ", u)
 -----------------------------------------------
 Computes an integer representing the colexicographic rank of the permutation
 
+* `permutation` is an array encoding some permutation
 
-`require("permutation-rank").unrank(length, rank)`
+**Returns** An integer representing the ranked encoding of the permutation
+
+
+`require("permutation-rank").unrank(length, rank[, result])`
 --------------------------------------------------
 Computes a permutation from a rank order with the given length
 
+* `length` is the length of the permuation
+* `rank` is the index of the permutation
+* `result` is an optional argument which stores the result of the inversion
+
+**Returns** The permutation at the given rank
 
 Credits
 =======
