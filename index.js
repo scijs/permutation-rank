@@ -43,6 +43,7 @@ function unrank(n, r, p) {
     case 1:
       if(p) {
         p[0] = 0
+        return p
       } else {
         return [0]
       }
