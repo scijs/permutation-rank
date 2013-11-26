@@ -1,6 +1,6 @@
 {
   "name": "permutation-rank",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Ranks and unranks permutations",
   "main": "index.js",
   "directories": {
