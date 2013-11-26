@@ -25,7 +25,7 @@ console.log("u = ", u)
 //        u =  [ 0, 3, 1, 2 ]
 ```
 
-`require("permutation-rank").rank(permutation)`
+`prank.rank(permutation)`
 -----------------------------------------------
 Computes an integer representing the colexicographic rank of the permutation
 
@@ -34,7 +34,7 @@ Computes an integer representing the colexicographic rank of the permutation
 **Returns** An integer representing the ranked encoding of the permutation
 
 
-`require("permutation-rank").unrank(length, rank[, result])`
+`prank.unrank(length, rank[, result])`
 --------------------------------------------------
 Computes a permutation from a rank order with the given length
 
