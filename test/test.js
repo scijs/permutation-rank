@@ -1,4 +1,4 @@
-var test = require("tap").test
+var test = require("tape")
   , rank = require("../index.js").rank
   , unrank = require("../index.js").unrank
 
